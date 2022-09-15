@@ -1,6 +1,7 @@
 package ru.netology.testmode.test;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,7 @@ class AuthTest {
 
     @BeforeEach
     void setup() {
+        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
     }
 
@@ -28,7 +30,7 @@ class AuthTest {
         $x("//*[@data-test-id=\"login\"]//self::input").setValue(registeredUser.getLogin());
         $x("//*[@data-test-id=\"password\"]//self::input").setValue(registeredUser.getPassword());
         $x("//span[text()='Продолжить']").click();
-        $x("//*h2").shouldHave(Condition.text("Личный кабинет"));
+        $x("//*[@id='root']").shouldHave(Condition.text("  Личный кабинет"));
 
 
         // TODO: добавить логику теста, в рамках которого будет выполнена попытка входа в личный кабинет с учётными
