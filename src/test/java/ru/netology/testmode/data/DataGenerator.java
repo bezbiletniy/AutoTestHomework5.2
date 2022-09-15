@@ -40,7 +40,7 @@ public class DataGenerator {
     }
 
     public static String getRandomLogin() {
-        return faker.funnyName().name();
+        return faker.name().firstName();
 
         // TODO: добавить логику для объявления переменной login и задания её значения, для генерации
         //  случайного логина используйте faker
