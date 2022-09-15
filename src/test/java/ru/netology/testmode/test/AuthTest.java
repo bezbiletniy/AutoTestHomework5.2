@@ -70,7 +70,7 @@ class AuthTest {
         $x("//*[@data-test-id=\"login\"]//self::input").setValue(wrongLogin);
         $x("//*[@data-test-id=\"password\"]//self::input").setValue(registeredUser.getPassword());
         $x("//span[text()='Продолжить']").click();
-        $x("//*[@data-test-id=\"error-notification\"]").shouldBe(Condition.visible, Duration.ofSeconds(5)).shouldHave(Condition.text("Неверно указан логин или пароль"));
+        $x("//*[@data-test-id=\"error-notification\"]").shouldBe(Condition.visible, Duration.ofSeconds(5)).shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"));
 
         // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет с неверным
         //  логином, для заполнения поля формы "Логин" используйте переменную wrongLogin,
@@ -85,7 +85,7 @@ class AuthTest {
         $x("//*[@data-test-id=\"login\"]//self::input").setValue(registeredUser.getLogin());
         $x("//*[@data-test-id=\"password\"]//self::input").setValue(wrongPassword);
         $x("//span[text()='Продолжить']").click();
-        $x("//*[@data-test-id=\"error-notification\"]").shouldBe(Condition.visible, Duration.ofSeconds(5)).shouldHave(Condition.text("Неверно указан логин или пароль"));
+        $x("//*[@data-test-id=\"error-notification\"]").shouldBe(Condition.visible, Duration.ofSeconds(5)).shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"));
 
         // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет с неверным
         //  паролем, для заполнения поля формы "Логин" используйте пользователя registeredUser,
